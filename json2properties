@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby
+# vim: ft=ruby
+
+require 'json'
+
+def flatten(j, path = "")
+  case j
+  when Hash
+    j.keys.each do |k|
+      flatten(j[k], path + '.' + k)
+    end
+  when Array
+    if j.any? { |e| e.is_a?(Hash) || e.is_a?(Array) }
+      j.each_with_index do |v,i|
+        flatten(v, path + '.' + i.to_s)
+      end
+    else
+      puts "#{path}: #{j.join(',')}"
+    end
+  else
+    puts "#{path}: [ #{j} ]"
+  end
+end
+
+j = JSON.parse(STDIN.read())
+flatten(j)
+

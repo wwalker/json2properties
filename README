@@ -1,0 +1,7 @@
+A Unix filter style (reads stdin, writes to stdout) JSON to Java Properties file content converter.
+
+On Ruby 1.9 or higher, should just run.
+
+Seems to accept any valid json.
+
+The concept is quite simple, so you should be able to edit to your needs.
