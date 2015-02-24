@@ -15,10 +15,10 @@ def flatten(j, path = "")
         flatten(v, path + '.' + i.to_s)
       end
     else
-      puts "#{path}: #{j.join(',')}"
+      puts "#{path}: [ #{j.join(',')} ]"
     end
   else
-    puts "#{path}: [ #{j} ]"
+    puts "#{path}: #{j}"
   end
 end
 
